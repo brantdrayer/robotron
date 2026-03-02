@@ -2,10 +2,12 @@
 
 **OpenClaw acts as your autonomous contractor and action agent** — continuously receiving information from external sources and intelligently taking actions based on what it finds.
 
+## My Customized Setup
 This repo contains my customized OpenClaw configuration as a simple, reliable, self-hosted monitoring agent. Built on the open-source [OpenClaw project](https://github.com/openclaw/openclaw) (formerly Clawdbot → Moltbot), customized to:
-- Fully integrate with Discord as the primary (and only) channel
-- Receive incoming data and notifications from Oracle databases through APEX-exposed web services
-- Show all LLM-powered reasoning, decision-making, tool calls, and responses live in Discord conversations — so I can watch the agent think, respond, and act in real time
+- Use Discord as the primary (and only) channel for all interaction
+- Receive real-time data and notifications from Oracle databases via a Discord webhook (initiated by APEX-exposed web services)
+- Trigger, test, and manage Oracle interactions through SQL Developer
+- Display the agent's full LLM-powered reasoning, tool calls, decisions, and responses live in Discord — making it easy to follow exactly what the agent is thinking and doing
 
 ## Why This Setup?
 - Keeps everything conversational and visible right in Discord — I chat with the agent, see its full reasoning with the LLM, tool calls, and decisions live as they happen.
