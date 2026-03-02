@@ -1,0 +1,202 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.1",
+    "lastTouchedAt": "2026-03-02T15:36:32.941Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-02T15:36:32.645Z",
+    "lastRunVersion": "2026.2.24",
+    "lastRunCommand": "configure",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {
+      "google:default": {
+        "provider": "google",
+        "mode": "api_key"
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openai/gpt-5.1"
+      },
+      "models": {
+        "openai/gpt-5.1": {},
+        "google/gemini-2.5-flash": {}
+      },
+      "workspace": "/home/YOUR_USER/.openclaw/workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "name": "main",
+        "workspace": "/home/YOUR_USER/.openclaw/workspace",
+        "agentDir": "/home/YOUR_USER/.openclaw/agents/main/agent",
+        "model": "openai/gpt-5.1"
+      },
+      {
+        "id": "work",
+        "name": "work",
+        "workspace": "/home/YOUR_USER/.openclaw/workspace-work",
+        "agentDir": "/home/YOUR_USER/.openclaw/agents/work/agent",
+        "model": "openai/gpt-5.1"
+      }
+    ]
+  },
+  "bindings": [
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "telegram",
+        "accountId": "main"
+      }
+    },
+    {
+      "agentId": "work",
+      "match": {
+        "channel": "telegram",
+        "accountId": "work"
+      }
+    },
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "discord",
+        "accountId": "main"
+      }
+    },
+    {
+      "agentId": "work",
+      "match": {
+        "channel": "discord",
+        "accountId": "work"
+      }
+    }
+  ],
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "hooks": {
+    "enabled": true,
+    "path": "/hooks",
+    "token": "YOUR_TOKEN"
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "groupPolicy": "allowlist",
+      "streaming": "partial",
+      "accounts": {
+        "main": {
+          "dmPolicy": "pairing",
+          "botToken": "YOUR_BOT_TOKEN",
+          "groupPolicy": "allowlist",
+          "streaming": "off"
+        },
+        "work": {
+          "dmPolicy": "pairing",
+          "botToken": "YOUR_BOT_TOKEN",
+          "groupPolicy": "allowlist",
+          "streaming": "off"
+        }
+      }
+    },
+    "discord": {
+      "enabled": true,
+      "allowBots": true,
+      "groupPolicy": "allowlist",
+      "streaming": "off",
+      "accounts": {
+        "main": {
+          "enabled": true,
+          "token": "YOUR_TOKEN",
+          "groupPolicy": "allowlist",
+          "streaming": "off",
+          "guilds": {
+            "GUILD_ID": {
+              "channels": {
+                "CHANNEL_ID": {
+                  "allow": true,
+                  "requireMention": true
+                }
+              }
+            }
+          }
+        },
+        "work": {
+          "token": "YOUR_TOKEN",
+          "groupPolicy": "allowlist",
+          "streaming": "off",
+          "guilds": {
+            "GUILD_ID": {
+              "channels": {
+                "CHANNEL_ID": {
+                  "allow": true,
+                  "requireMention": true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "controlUi": {
+      "allowedOrigins": [
+        "Your Tailscale Address(es)"
+      ]
+    },
+    "auth": {
+      "mode": "token",
+      "token": "YOUR_TOKEN",
+      "allowTailscale": true
+    },
+    "tailscale": {
+      "mode": "serve",
+      "resetOnExit": false
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "calendar.add",
+        "contacts.add",
+        "reminders.add"
+      ]
+    }
+  },
+  "plugins": {
+    "entries": {
+      "discord": {
+        "enabled": true
+      },
+      "telegram": {
+        "enabled": true
+      }
+    }
+  }
+}
