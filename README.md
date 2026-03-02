@@ -4,6 +4,7 @@
 
 ## My Customized Setup
 This repo contains my customized OpenClaw configuration as a simple, reliable, self-hosted monitoring agent. Built on the open-source [OpenClaw project](https://github.com/openclaw/openclaw) (formerly Clawdbot → Moltbot), customized to:
+- Run on a dedicated Ubunut VirtualBox VM
 - Use Discord as the primary (and only) channel for all interaction
 - Receive real-time data and notifications from Oracle databases via a Discord webhook (initiated by APEX-exposed web services)
 - Trigger, test, and manage Oracle interactions through SQL Developer
@@ -29,6 +30,7 @@ See official security docs.
 ## Quick Start – Get OpenClaw running
 
 ### Prerequisites
+- Isolated computer or server (Many use an Cloud VM with AWS or Hertzner. For this setup I used a VirtualBox VM)
 - Node.js 22+ (check with `node -v`; LTS recommended)
 - npm (comes with Node)
 - Git
@@ -50,6 +52,8 @@ See official security docs.
    --install-daemon flag is optional. Recommended if you want it to run 24-7.
    Follow the prompts in the ui.
    
+   <img width="679" height="580" alt="image" src="https://github.com/user-attachments/assets/8beb7160-10f3-4fb9-8149-876e05b3a454" />
+
 ## Configuration Template
 See `openclaw.example.json` for a sanitized template of my setup including discord and telegram channel configs.
 
@@ -57,3 +61,4 @@ To use:
 1. Copy it to `~/.openclaw/openclaw.json` (or set `OPENCLAW_CONFIG_PATH` env var)
 2. Replace placeholders with your real values (Discord token, LLM key, etc.)
 3. Restart the gateway
+
