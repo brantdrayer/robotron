@@ -93,3 +93,22 @@ Here's the basic outline of how to get Discord connected as the channel for Open
 4. **Quick test**
    - Message the bot in Discord
    - It should respond like a regular LLM in the discord channel.
+
+## Adding a Discord Webhook
+
+Adding a Discord webhook- a public endpoint discord provides that I can hit via https from Oracle Apex Web Service to deliver messages to the agent.
+
+### Create the Webhook:
+   - In Discord go under Server Settings > Integrations > Webhooks and add a new Webhook. 
+   - Copy the webhook link. You can post to it with a simple json format, and it will send it as a message in the discord server. 
+   - You can test your webhook with curl using the following command:
+   ```bash
+   curl -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "Webhook Alert Application",
+    "content": "<@bot_user_id> Message Content"
+  }'
+  ```
+  - **Important**: if you want your bot to respond to the webhook content, you'll need to @mention it as shown in the example command.
+
