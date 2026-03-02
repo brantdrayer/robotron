@@ -1,6 +1,6 @@
-# Contractor
+# Robotron 
 
-**OpenClaw acts as your autonomous contractor and action agent** — continuously receiving information from external sources and intelligently taking actions based on what it finds.
+**OpenClaw acts as your autonomous agent and action agent** — continuously receiving information from external sources and intelligently taking actions based on what it finds.
 
 ## My Customized Setup
 This repo contains my customized OpenClaw configuration as a simple, reliable, self-hosted monitoring agent. Built on the open-source [OpenClaw project](https://github.com/openclaw/openclaw) (formerly Clawdbot → Moltbot), customized to:
@@ -27,6 +27,15 @@ OpenClaw agents have powerful access (tools, channels, code execution). Use:
 
 See official security docs.
 
+## Configuration Template
+See `openclaw.example.json` for a sanitized template of my setup including discord and telegram channel configs.
+
+To use:
+1. Copy it to `~/.openclaw/openclaw.json` (or set `OPENCLAW_CONFIG_PATH` env var)
+2. Replace placeholders with your real values (Discord token, LLM key, etc.)
+3. Restart the gateway
+
+Or use it as a reference for specific configuration elements.
 ## Quick Start – Get OpenClaw running
 
 ### Prerequisites
@@ -50,15 +59,36 @@ See official security docs.
    openclaw onboard --install-daemon
    ```
    --install-daemon flag is optional. Recommended if you want it to run 24-7.
-   Follow the prompts in the ui.
+   Follow the prompts in the ui. This should automatically populate 
    
    <img width="679" height="580" alt="image" src="https://github.com/user-attachments/assets/8beb7160-10f3-4fb9-8149-876e05b3a454" />
 
-## Configuration Template
-See `openclaw.example.json` for a sanitized template of my setup including discord and telegram channel configs.
+4. **Hatching the Agent (Creating Your First AI Contractor)**
+   - Once OpenClaw is installed and the onboarding wizard runs, you'll need to hatch your agent (give it context in your first conversation).
 
-To use:
-1. Copy it to `~/.openclaw/openclaw.json` (or set `OPENCLAW_CONFIG_PATH` env var)
-2. Replace placeholders with your real values (Discord token, LLM key, etc.)
-3. Restart the gateway
+   When prompted during onboarding (or run `openclaw tui` later if already onboarded):
+   - Select **Hatch in TUI (recommended)**.
+   - Answer the bot's questions about what it should call itself and you, it's personality, etc.  
+   - Now you can talk to it directly in the terminal!
 
+## Setting Up the Discord Channel
+
+Here's the basic outline of how to get Discord connected as the channel for OpenClaw:
+
+1. **Create a Discord bot**
+   - Go to the Discord Developer Portal (discord.com/developers/applications).
+   - Make a new application and added a bot to it.
+   - Copy the bot token (keep it secure — never share or commit).
+
+2. **Invite the bot to a server**
+   - Generate an invite link from the OAuth2 URL Generator (select bot scope + basic permissions like read/send messages).
+   - Use the link to add the bot to a private Discord server (guild).
+
+3. **Connect it in configuration**
+   - Run `openclaw configure` (Or copy my config and add secrets).
+   - When it asks about channels, choose Discord and paste the bot token.
+   - Pair the channel via `openclaw pairing`
+   - Make sure allowBots is set to true in config.   
+4. **Quick test**
+   - Message the bot in Discord
+   - It should respond like a regular LLM chat in the discord channel.
