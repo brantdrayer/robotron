@@ -87,8 +87,9 @@ Here's the basic outline of how to get Discord connected as the channel for Open
 3. **Connect it in configuration**
    - Run `openclaw configure` (Or copy my config and add secrets).
    - When it asks about channels, choose Discord and paste the bot token.
-   - Pair the channel via `openclaw pairing`
+   - View pending pairing requests with `openclaw devices list`
+   - Approve the channel via `openclaw pairing approve discord <Pairing Code>`
    - Make sure allowBots is set to true in config.   
 4. **Quick test**
    - Message the bot in Discord
-   - It should respond like a regular LLM chat in the discord channel.
+   - It should respond like a regular LLM in the discord channel.
