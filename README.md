@@ -24,7 +24,7 @@ OpenClaw agents have powerful access (tools, channels, code execution). Use:
 
 See official security docs.
 
-## Quick Start – How I Got It Running
+## Quick Start – Get OpenClaw running
 
 ### Prerequisites
 - Node.js 22+ (check with `node -v`; LTS recommended)
@@ -38,12 +38,20 @@ See official security docs.
    ```bash
    git clone https://github.com/brantdrayer/contractor.git
    cd contractor
-2. **Install Openclaw Globally**
+2. **Install Openclaw globally**
    ```bash
    npm install -g openclaw@latest
-3. **Run the OpenClaw Onboarding to setup intial configuration**
+3. **Run the OpenClaw onboarding command to setup intial configuration**
    ```bash
    openclaw onboard --install-daemon
    ```
    --install-daemon flag is optional. Recommended if you want it to run 24-7.
    Follow the prompts in the ui.
+   
+## Configuration Template
+See `openclaw.example.json` for a sanitized template of my setup including discord and telegram channel configs.
+
+To use:
+1. Copy it to `~/.openclaw/openclaw.json` (or set `OPENCLAW_CONFIG_PATH` env var)
+2. Replace placeholders with your real values (Discord token, LLM key, etc.)
+3. Restart the gateway
