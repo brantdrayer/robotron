@@ -49,7 +49,7 @@ Or use it as a reference for specific configuration elements.
 ### Installation Steps (as done on my machine)
 1. **Clone the repo** (to get my custom configs, skills, or .env.example)
    ```bash
-   git clone https://github.com/brantdrayer/contractor.git
+   git clone https://github.com/brantdrayer/robotron.git
    cd contractor
 2. **Install Openclaw globally**
    ```bash
