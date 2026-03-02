@@ -50,7 +50,7 @@ Or use it as a reference for specific configuration elements.
 1. **Clone the repo** (to get my custom configs, skills, or .env.example)
    ```bash
    git clone https://github.com/brantdrayer/robotron.git
-   cd contractor
+   cd robotron
 2. **Install Openclaw globally**
    ```bash
    npm install -g openclaw@latest
