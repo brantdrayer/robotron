@@ -56,20 +56,6 @@
     {
       "agentId": "main",
       "match": {
-        "channel": "telegram",
-        "accountId": "main"
-      }
-    },
-    {
-      "agentId": "work",
-      "match": {
-        "channel": "telegram",
-        "accountId": "work"
-      }
-    },
-    {
-      "agentId": "main",
-      "match": {
         "channel": "discord",
         "accountId": "main"
       }
@@ -100,26 +86,6 @@
     "token": "YOUR_TOKEN"
   },
   "channels": {
-    "telegram": {
-      "enabled": true,
-      "dmPolicy": "pairing",
-      "groupPolicy": "allowlist",
-      "streaming": "partial",
-      "accounts": {
-        "main": {
-          "dmPolicy": "pairing",
-          "botToken": "YOUR_BOT_TOKEN",
-          "groupPolicy": "allowlist",
-          "streaming": "off"
-        },
-        "work": {
-          "dmPolicy": "pairing",
-          "botToken": "YOUR_BOT_TOKEN",
-          "groupPolicy": "allowlist",
-          "streaming": "off"
-        }
-      }
-    },
     "discord": {
       "enabled": true,
       "allowBots": true,
@@ -192,9 +158,6 @@
   "plugins": {
     "entries": {
       "discord": {
-        "enabled": true
-      },
-      "telegram": {
         "enabled": true
       }
     }

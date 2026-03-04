@@ -1,6 +1,7 @@
 # Robotron Agent
 
 **OpenClaw acts as your autonomous agent** — continuously receiving information from external sources and intelligently taking action based on what it finds.
+**OpenClaw acts as your autonomous agent** — continuously receiving information from external sources and intelligently taking action based on what it finds.
 
 ---
 
