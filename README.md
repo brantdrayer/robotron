@@ -1,7 +1,6 @@
 # Robotron Agent
 
 **OpenClaw acts as your autonomous agent** — continuously receiving information from external sources and intelligently taking action based on what it finds.
-**OpenClaw acts as your autonomous agent** — continuously receiving information from external sources and intelligently taking action based on what it finds.
 
 ---
 
@@ -18,9 +17,20 @@ This guide walks through everything needed to get the stack running: installing 
 - **Unified channel** — Discord serves as both input and output
 - **Self-hosted** — runs on your own VM with no vendor lock-in beyond an LLM API key
 
-### ⚠️ **Security Limitation: 
+### Security Notes
 
+OpenClaw agents have significant access (tools, channels, code execution). Follow these practices:
+
+- Use least-privilege LLM API keys and Discord bot tokens
+- Run in an isolated environment (VM or container)
+- Review all skills before enabling them
+- Never expose the agent publicly without strong authentication
+- Rotate secrets regularly and never commit them to version control
+
+**Note about Discord Webhooks**:
 The Discord webhook approach is intentionally simple — it's a fast way to get Oracle talking to OpenClaw, not a production-ready pattern. Webhook URLs carry their own authorization, meaning anyone who obtains the URL can post messages to your channel and potentially trigger the agent. Treat the URL like a secret, and consider a more hardened integration path before deploying this in a sensitive environment.
+
+See the [official OpenClaw security documentation](https://github.com/openclaw/openclaw) for full guidance.
 
 ---
 
