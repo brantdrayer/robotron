@@ -138,9 +138,7 @@ openclaw pairing approve discord <Pairing Code>
 
 > Ensure `allowBots` is set to `true` in your config file.
 
-### Quick Test
-
-Send a message to the bot in your Discord server — it should respond like a standard LLM.
+**Quick Test:** @mention the bot in your Discord server and ask it a question — it should respond like a standard LLM.
 
 ---
 
